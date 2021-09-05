@@ -857,8 +857,8 @@
         "bpm": 175,
         "sections": 0,
         "needsVoices": true,
-        "player1": "bf",
-        "player2": "pico",
+        "player1": "bf-mod",
+        "player2": "scientist",
         "sectionLengths": [],
         "speed": 1,
         "validScore": true

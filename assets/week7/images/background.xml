@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="background.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Background0000" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="Background0001" x="2560" y="0" width="2560" height="1400"/>
+	<SubTexture name="Background0002" x="5120" y="0" width="2560" height="1400"/>
+	<SubTexture name="Background0003" x="0" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0004" x="2560" y="0" width="2560" height="1400"/>
+	<SubTexture name="Background0005" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0006" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0007" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0008" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0009" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0010" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0011" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0012" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0013" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0014" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0015" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0016" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0017" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0018" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0019" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0020" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0021" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="Background0022" x="2560" y="1400" width="2560" height="1400"/>
+</TextureAtlas>

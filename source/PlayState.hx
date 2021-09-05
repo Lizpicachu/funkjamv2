@@ -183,6 +183,12 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'breach':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('breach/breachDialogue'));
+			case 'archetype':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('archetype/archetypeDialouge'));
+			case 'perspective':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('perspective/perspectiveDialouge'));
 		}
 
 		#if desktop
@@ -540,6 +546,34 @@ class PlayState extends MusicBeatState
 		                            add(waveSpriteFG);
 		                    */
 		          }
+				  case 'breach' | 'archetype' | 'perspective':
+		          {
+		                  defaultCamZoom = 0.9;
+		                  curStage = 'lab';
+		                  
+						  var bgLimo:FlxSprite = new FlxSprite(-580, -250);
+		                  bgLimo.frames = Paths.getSparrowAtlas('background');
+		                  bgLimo.animation.addByPrefix('bump', "Background", 24);
+		                  bgLimo.animation.play('bump');
+		                  bgLimo.scrollFactor.set(0.9, 0.9);
+						  bgLimo.setGraphicSize(Std.int(bgLimo.width * 0.8));
+		                  add(bgLimo);
+						  
+						  var bg:FlxSprite = new FlxSprite(-560,-250).loadGraphic(Paths.image('lab'));
+		                  bg.antialiasing = true;
+		                  bg.scrollFactor.set(0.8, 0.8);
+		                  bg.active = false;
+						  bg.setGraphicSize(Std.int(bg.width * 0.8));
+		                  add(bg);
+
+						  var lamp:FlxSprite = new FlxSprite(-560,-250).loadGraphic(Paths.image('lights'));
+		                  lamp.antialiasing = true;
+		                  lamp.scrollFactor.set(0.6, 0.6);
+		                  lamp.active = false;
+						  lamp.setGraphicSize(Std.int(lamp.width * 0.8));
+		                  add(lamp);
+
+		          }
 		          default:
 		          {
 		                  defaultCamZoom = 0.9;
@@ -669,6 +703,8 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+			case 'lab':
+				boyfriend.x += 300;
 		}
 
 		add(gf);
@@ -802,6 +838,8 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
+					schoolIntro(doof);
+				case 'breach'|'archetype'|'perspective':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -1177,6 +1215,40 @@ class PlayState extends MusicBeatState
 							babyArrow.animation.add('static', [3]);
 							babyArrow.animation.add('pressed', [7, 11], 12, false);
 							babyArrow.animation.add('confirm', [15, 19], 24, false);
+					}
+
+			case 'lab':
+					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets_mod');
+					babyArrow.animation.addByPrefix('green', 'arrowUP');
+					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
+					babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
+
+					babyArrow.antialiasing = true;
+					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+
+					switch (Math.abs(i))
+					{
+						case 0:
+							babyArrow.x += Note.swagWidth * 0;
+							babyArrow.animation.addByPrefix('static', 'arrowLEFT');
+							babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+							babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+						case 1:
+							babyArrow.x += Note.swagWidth * 1;
+							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+							babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+							babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+						case 2:
+							babyArrow.x += Note.swagWidth * 2;
+							babyArrow.animation.addByPrefix('static', 'arrowUP');
+							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+							babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+						case 3:
+							babyArrow.x += Note.swagWidth * 3;
+							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
+							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
 					}
 
 				default:

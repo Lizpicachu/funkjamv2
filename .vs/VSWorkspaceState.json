@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\preload\\data",
+    "\\assets\\preload\\data\\perspective",
+    "\\assets\\week7\\images",
+    "\\source"
   ],
+  "SelectedNode": "\\source\\CoolUtil.hx",
   "PreviewInSolutionExplorer": false
 }

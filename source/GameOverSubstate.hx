@@ -26,6 +26,8 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'schoolEvil':
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
+			case 'lab':
+				daBf = 'bf-mod';
 			default:
 				daBf = 'bf';
 		}

@@ -65,16 +65,17 @@ class Character extends FlxSprite
 				// GIRLFRIEND CODE
 				tex = Paths.getSparrowAtlas('gf-mod');
 				frames = tex;
-				animation.addByIndices('sad', 'GF sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('sad', ' GF sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', ' GF dancing beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', ' GF dancing beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('singUP', ' GF dancing beat', [2], "", 24, false);
 
-				addOffset('sad', -2, -2);
+				addOffset('sad', -2, -9);
 				addOffset('danceLeft', 0, -9);
 				addOffset('danceRight', 0, -9);
 
 				playAnim('danceRight');
-				setGraphicSize(Std.int(width * 1.5));
+				setGraphicSize(Std.int(width * 1));
 
 			case 'gf-christmas':
 				tex = Paths.getSparrowAtlas('christmas/gfChristmas');
@@ -284,7 +285,7 @@ class Character extends FlxSprite
 				// Animation for science guy
 				tex = Paths.getSparrowAtlas('Scientist-mod');
 				frames = tex;
-				animation.addByPrefix('idle', 'Scientist Idle', 24);
+				animation.addByPrefix('idle', 'Scientist Idle0', 24);
 				animation.addByPrefix('singUP', 'Scientist Sing up', 24);
 				animation.addByPrefix('singRIGHT', 'Scientist Sing right', 24);
 				animation.addByPrefix('singDOWN', 'Scientist sing down', 24);
@@ -456,18 +457,19 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('firstDeath', "Bf dies", 24, false);
+				animation.addByPrefix('deathLoop', "Bf death loop", 24, true);
+				animation.addByPrefix('deathConfirm', "Bf death loop", 24, false);
 
-				addOffset('idle', 95);
-				addOffset("singUP", 71, 0);
-				addOffset("singRIGHT", 62, -7);
-				addOffset("singLEFT", 112, -6);
-				addOffset("singDOWN", 90, 0);
-				addOffset("singUPmiss", 71, 27);
-				addOffset("singRIGHTmiss", 70, 21);
-				addOffset("singLEFTmiss", 112, 24);
-				addOffset("singDOWNmiss", 89, -19);
-				addOffset('firstDeath', 137, 11);
+				addOffset('idle', 145);
+				addOffset("singUP", 121, 0);
+				addOffset("singRIGHT", 112, -7);
+				addOffset("singLEFT", 162, -6);
+				addOffset("singDOWN", 140, 0);
+				addOffset("singUPmiss", 121, 27);
+				addOffset("singRIGHTmiss", 20, 21);
+				addOffset("singLEFTmiss", 162, 24);
+				addOffset("singDOWNmiss", 139, -19);
 
 				playAnim('idle');
 				flipX = true;
@@ -629,6 +631,17 @@ class Character extends FlxSprite
 			switch (curCharacter)
 			{
 				case 'gf':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
+				
+				case 'gf-mod':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
